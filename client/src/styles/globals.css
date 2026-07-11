@@ -1,0 +1,256 @@
+/* ============================================
+   Nova AI — Soft Peach & Cream Theme
+   Paste this into: client/src/styles/globals.css
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  /* Core palette */
+  --color-bg: #FFF8F0;           /* cream background */
+  --color-bg-soft: #FFEFE0;      /* slightly deeper cream for panels */
+  --color-sidebar: #FFE9D6;      /* peach sidebar */
+  --color-accent: #FFB88C;       /* main peach accent */
+  --color-accent-dark: #FF9A6C;  /* hover / active peach */
+  --color-accent-light: #FFD9BB; /* light peach highlights */
+  --color-text: #5A4636;         /* warm brown text, easy on eyes */
+  --color-text-soft: #8C7A6B;    /* muted secondary text */
+  --color-white: #FFFFFF;
+  --color-bubble-user: #FFD9BB;      /* user message bubble */
+  --color-bubble-bot: #FFFFFF;       /* bot message bubble */
+  --color-border: #F3DFC9;
+  --shadow-soft: 0 4px 14px rgba(255, 184, 140, 0.25);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Quicksand', 'Poppins', sans-serif;
+}
+
+/* ---------- Layout ---------- */
+.app-container {
+  display: flex;
+  height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 280px;
+  background: var(--color-sidebar);
+  padding: 20px 16px;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--color-accent-dark);
+  letter-spacing: 0.5px;
+}
+
+.new-chat-btn {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.new-chat-btn:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.chat-list-item {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-soft);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.chat-list-item:hover,
+.chat-list-item.active {
+  background: var(--color-accent-light);
+  color: var(--color-text);
+}
+
+/* ---------- Main Chat Area ---------- */
+.main-header {
+  background: var(--color-bg-soft);
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--color-border);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-accent-dark);
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-soft);
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* ---------- Message Bubbles ---------- */
+.message-row {
+  display: flex;
+  padding: 6px 24px;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 65%;
+  padding: 12px 18px;
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: var(--shadow-soft);
+}
+
+.message-bubble.user {
+  background: var(--color-bubble-user);
+  color: var(--color-text);
+  border-bottom-right-radius: 4px;
+}
+
+.message-bubble.bot {
+  background: var(--color-bubble-bot);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: 4px;
+}
+
+/* ---------- Chat Input ---------- */
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: var(--color-bg-soft);
+  border-top: 1px solid var(--color-border);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.chat-input:focus {
+  border-color: var(--color-accent);
+}
+
+.send-btn {
+  background: var(--color-accent);
+  border: none;
+  color: var(--color-white);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: background 0.2s ease;
+}
+
+.send-btn:hover {
+  background: var(--color-accent-dark);
+}
+
+/* ---------- Buttons (generic) ---------- */
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-dark);
+}
+
+/* ---------- Login / Register Cards ---------- */
+.auth-card {
+  background: var(--color-white);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  max-width: 380px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.auth-card h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-accent-dark);
+  margin-bottom: 20px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-family: 'Quicksand', sans-serif;
+  outline: none;
+}
+
+.auth-input:focus {
+  border-color: var(--color-accent);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-light);
+  border-radius: 10px;
+}
