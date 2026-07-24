@@ -172,8 +172,8 @@ http://localhost:5173
 
 Backend
 
-```
-http://localhost:5001
+`
+https://ai-chat-application-2-vwyb.onrender.com
 ```
 
 ---
