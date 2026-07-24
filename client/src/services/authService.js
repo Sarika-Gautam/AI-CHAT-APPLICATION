@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5001/api/auth",
+  baseURL: `${import.meta.env.VITE_API_URL}/auth`,
 });
 
 // Register User
@@ -34,3 +34,5 @@ export const getCurrentUser = async (token) => {
 export const logout = () => {
   localStorage.removeItem("token");
 };
+
+export default API;

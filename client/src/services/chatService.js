@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5001/api/chat";
+const API = `${import.meta.env.VITE_API_URL}/chat`;
 
 export const createChat = (token) => {
   return axios.post(
