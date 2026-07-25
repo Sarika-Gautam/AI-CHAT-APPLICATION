@@ -3,28 +3,28 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import authRoutes from "./routes/auth.routes.js";
+import chatRoutes from "./routes/chat.routes.js";
 
 dotenv.config();
 
 const app = express();
 
-// ===============================
-// MIDDLEWARE
-// ===============================
-
+// Middleware
 app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: [
+      "http://localhost:5173",
+      "https://ai-chat-application-taupe.vercel.app",
+    ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// ===============================
-// ROUTES
-// ===============================
-
+// Routes
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -33,12 +33,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/chat", chatRoutes);
 
-
-// ===============================
 // 404
-// ===============================
-
 app.use((req, res) => {
   res.status(404).json({
     success: false,
